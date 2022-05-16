@@ -30,7 +30,7 @@
         <div id="main" class="collapse @yield('main')" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item @yield('Jadwal')" href="/jadwal">Jadwal Seminar</a>
-            <a class="collapse-item @yield('')" href="">Rekaptulasi</a>
+            <a class="collapse-item @yield('rekaptulasi')" href="/rekaptulasi">Rekaptulasi</a>
           </div>
         </div>
       </li>
