@@ -15,12 +15,12 @@ class CreateJadwalsTable extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-        
+
             $table->string('name');
-            $table->date('waktu');
+            $table->string('waktu');
             $table->string('penguji');
-            $table->integer('ruangan');
-           
+            $table->string('ruangan');
+
             $table->timestamps();
         });
     }
