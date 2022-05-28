@@ -1,4 +1,5 @@
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,17 +15,19 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel 8 User Roles and Permissions 
+                    Laravel 8 User Roles and Permissions
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-    
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto"></ul>
@@ -41,20 +44,21 @@
                             <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
                             <li><a class="nav-link" href="/dasboard">dasboard</a></li>
                             <li class="nav-item dropdown">
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                    </div>
+                    </li>
+                @endguest
+                </ul>
             </div>
-        </nav>
+    </div>
+    </nav>
 
 
-        <main class="py-4">
-            <div class="container">
+    <main class="py-4">
+        <div class="container">
             @yield('content')
-            </div>
-        </main>
+        </div>
+    </main>
     </div>
 </body>
+
 </html>

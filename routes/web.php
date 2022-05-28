@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\jadwalController;
 use App\Http\Controllers\RekaptulasiController;
+use App\Http\Controllers\PenilaianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use App\Http\Controllers\RekaptulasiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 Route::get('dasboard', function () {
     return view('admin/dasboard');
@@ -32,11 +33,13 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('/jadwal', jadwalController::class);
     Route::resource('/rekaptulasi', RekaptulasiController::class);
 });
+
+Route::resource('/penilaian', PenilaianController::class);
 
 Route::get('/exportpdf', [jadwalController::class, 'exportpdf'])->name('exportpdf');
