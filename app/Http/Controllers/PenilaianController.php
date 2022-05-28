@@ -14,8 +14,8 @@ class PenilaianController extends Controller
      */
     public function index()
     {
-        $data = Penilaian::paginate(5);
-        return view('penilaian/index', compact('data'));
+        $nilai = Penilaian::select('id', 'nama', 'laporan', 'aplikasi', 'presentasi')->latest()->simplepaginate(10);
+        return view('penilaian/index', compact('nilai'));
     }
 
     /**
@@ -36,7 +36,27 @@ class PenilaianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'laporan' => 'required',
+            'aplikasi' => 'required',
+            'presentasi' => 'required',
+        ]);
+
+        Penilaian::create([
+            'nama' => $request->nama,
+            'laporan' => $request->laporan,
+            'aplikasi' => $request->aplikasi,
+            'presentasi' => $request->presentasi,
+        ]);
+
+        $request->session()->flash('sukses', '
+        <div class="alert alert-success" role="alert">
+            Data berhasil ditambahkan
+        </div>
+        ');
+
+        return redirect('/penilaian');
     }
 
     /**

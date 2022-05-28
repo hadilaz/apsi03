@@ -21,19 +21,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data as $row)
+            @foreach ($nilai as $row)
                 <tr>
-                    <td>{{ $row->id_username }}</td>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $row->nama }}</td>
                     <td>{{ $row->laporan }}</td>
                     <td>{{ $row->aplikasi }}</td>
-                    <td>{{ $role->presentasi }}</td>
+                    <td>{{ $row->presentasi }}</td>
                     <td width="20%">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <form action="rekaptulasi/{{ $row->id }}" method="post">
+                            <a href="/penilaian/{{ $row->id }}/edit" class="btn btn-primary btn-sm mr-1"><i
+                                    class="fas fa-edit"></i> Edit</a>
+                            <form action="/penilaian/{{ $row->id }}" method="post">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm"><i
-                                        class="fas fa-trash"></i>Hapus</button>
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
+                                    Hapus</button>
                             </form>
                         </div>
                     </td>

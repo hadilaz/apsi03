@@ -15,7 +15,7 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        $jadwal = jadwal::select('id', 'name', 'waktu','penguji','ruangan')->latest()->simplepaginate(10);
+        $jadwal = jadwal::select('id', 'name', 'waktu', 'penguji', 'ruangan')->latest()->simplepaginate(10);
         return view('admin/jadwal/index', compact('jadwal'));
     }
 
@@ -49,7 +49,6 @@ class JadwalController extends Controller
             'waktu' => $request->waktu,
             'penguji' => $request->penguji,
             'ruangan' => $request->ruangan,
-            
         ]);
 
         $request->session()->flash('sukses', '
@@ -58,7 +57,7 @@ class JadwalController extends Controller
         </div>
         ');
 
-    return redirect('/jadwal');
+        return redirect('/jadwal');
     }
 
     /**
@@ -80,7 +79,7 @@ class JadwalController extends Controller
      */
     public function edit($id)
     {
-        $jadwal = jadwal::select('id','name','waktu','penguji','ruangan')->whereId($id)->first();
+        $jadwal = jadwal::select('id', 'name', 'waktu', 'penguji', 'ruangan')->whereId($id)->first();
         return view('admin/jadwal/edit', compact('jadwal'));
     }
 
@@ -105,7 +104,7 @@ class JadwalController extends Controller
             'waktu' => $request->waktu,
             'penguji' => $request->penguji,
             'ruangan' => $request->ruangan,
-            
+
         ]);
         $request->session()->flash('sukses', '
         <div class="alert alert-success" role="alert">
@@ -113,9 +112,7 @@ class JadwalController extends Controller
         </div>
         ');
 
-    return redirect('/jadwal');
-
-
+        return redirect('/jadwal');
     }
 
     /**
@@ -135,13 +132,13 @@ class JadwalController extends Controller
         ');
         return redirect('/jadwal');
     }
-    
-    public function exportpdf (){
+
+    public function exportpdf()
+    {
         $data = Jadwal::all();
-        
+
         view()->share('data', $data);
         $pdf = PDF::loadview('admin/jadwal/datajadwal-pdf');
-        return $pdf->download ('data.pdf');
-
+        return $pdf->download('data.pdf');
     }
 }

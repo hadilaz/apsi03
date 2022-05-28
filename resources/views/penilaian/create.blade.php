@@ -1,5 +1,5 @@
 @extends('sb-admin/app')
-@section('title', 'penilaian')
+@section('title', 'Penilaian')
 
 @section('content')
     <!-- Page Heading -->
@@ -8,9 +8,9 @@
     <form action="/penilaian" method="POST">
         @csrf
         <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name">
-            @error('name')
+            <label for="nama">nama</label>
+            <input type="text" class="form-control" id="nama" name="nama">
+            @error('nama')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
@@ -36,6 +36,6 @@
             @enderror
         </div>
         <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
-        <a href="/penilaian" class="btn btn-secondary btn-sm">Kembali</a>
+        <a href="/jadwal" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
 @endsection

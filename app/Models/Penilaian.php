@@ -9,10 +9,5 @@ class Penilaian extends Model
 {
     use HasFactory;
     protected $table = 'penilaians';
-    protected $fillable = ['id_username', 'persantasi', 'aplikasi', 'username'];
-
-    public function users()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['nama', 'laporan', 'aplikasi', 'presentasi'];
 }
